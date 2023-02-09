@@ -2,7 +2,7 @@
  * Pizza Store Project
  * Customer Business Object
  * Author: Benevolence Ed Malik & Pradsley D'Haiti
- * Date: 02/05/2023
+ * Date: 02/05/2022
  ******************************************************************************** */
 package BusinessObject;
 
@@ -30,6 +30,7 @@ public class Customer {
         this.phone = "";
         this.password = "";
     }
+   
     // Copy constructor
     public Customer(Customer c){
         this.id = c.id;
@@ -41,9 +42,9 @@ public class Customer {
         this.password = c.password;
     }
     //Constructor with parameters
-    public Customer(int id, String custId, String fn, String ln, String em, String ph, String pass){
+    public Customer(int id, String fn, String ln, String em, String ph, String pass){
         this.id = id;
-        this.customerId = custId;
+        this.customerId = fn.substring(0, fn.length() - 2) + ln.substring(0,ln.length() - 2) + pass.substring(0,pass.length()- 2);
         this.firstname = fn;
         this.lastname = ln;
         this.email = em;
@@ -155,12 +156,74 @@ public class Customer {
                 setEmail(rs.getString("Email"));
                 setPhone(rs.getString("Phone"));
                 setPassword(rs.getString("Password"));    
-            
+            rs.close();
         }catch(Exception ex){
             ex.printStackTrace();
         }
+    }// end of selectEmail
+    public void insertDB(String fn, String ln, String em, String phone, String pass){
+        
+        this.customerId = fn.substring(0, 3) + ln.substring(0, 2) + pass.substring(0,2);;
+        this.firstname = fn;
+        this.lastname = ln;
+        this.email = em;
+        this.phone = phone;
+        this.password = pass;
+        try{
+            Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
+            Connection con = DriverManager.getConnection("jdbc:ucanaccess://C://Users//pach3//OneDrive//Personal//OneNote//Documents//PizzaStoreDB.accdb/");
+            Statement stmt = con.createStatement();
+            String sql = "INSERT INTO CUSTOMERS (CustomerID,FirstName,LastName,Email,Phone,Password) VALUES ('"+getCustomerId()+"',"
+                    + "'"+getFirstname()+"',"
+                    + ""+"'"+getLastname()+"',"
+                    + ""+"'"+getEmail()+"',"
+                    + ""+"'"+getPhone()+"',"
+                    + ""+getPassword()+")";
+            System.out.println(sql);
+            int n = stmt.executeUpdate(sql);
+            String result = n == 1 ? "Insert successfull" : "Insert failed";
+            System.out.println(result);
+        }catch(Exception ex){
+        ex.printStackTrace();
+        }
+    } // end of insertDB 
+    public void updateDB(){
+        try{
+            Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
+            Connection con = DriverManager.getConnection("jdbc:ucanaccess://C://Users//pach3//OneDrive//Personal//OneNote//Documents//PizzaStoreDB.accdb/");
+            Statement stmt = con.createStatement();
+            String sql = "UPDATE CUSTOMERS SET FirstName = '"+getFirstname()+"',"
+                    + "Lastname = '" +getLastname()+"',"
+                    + "Email = '"+getEmail()+"',"
+                    + "Phone = '"+getPhone()+"',"
+                    + "Password ='"+getPassword()+""
+                    + "'WHERE Email='"+getEmail()+"'";
+            
+            int n = stmt.executeUpdate(sql);
+            String result = n == 1 ? "Successfully updated" : "Update failed";
+            System.out.println(result);
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }finally{
+            System.out.println("Process Complete !");
+        }
+    } // end of updateDB
+    public void deleteDB(){
+        try{
+            Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
+            Connection con = DriverManager.getConnection("jdbc:ucanaccess://C://Users//pach3//OneDrive//Personal//OneNote//Documents//PizzaStoreDB.accdb/");
+            Statement stmt = con.createStatement();
+            String sql = "DELETE * FROM CUSTOMERS WHERE Email ='"+getEmail()+"'";
+            int n = stmt.executeUpdate(sql);
+            String result = n == 1 ? "Successfully deleted" : "Delete failed";
+            System.out.println(result);
+        }
+        catch(Exception ex){
+            ex.printStackTrace();
+        }finally{
+            System.out.println("Process Complete !");
+        }
     }
-    
      /**
      * @return all the class fields without invoking the method.
      */
@@ -185,7 +248,11 @@ public class Customer {
         System.out.println("Phone: " + this.phone);
         System.out.println("Password: " + this.password);
         System.out.println();
+    }   
+    public static void main(String[] arg){
+       
+        Customer louve = new Customer();
+        //louve.insertDB("Rodrigo", "Palacio", "rodriguo@gmail.com","5098865453", "1234");
+        louve.display();
     }
-    
-    
 }
