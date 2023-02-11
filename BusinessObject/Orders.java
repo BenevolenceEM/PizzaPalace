@@ -12,7 +12,7 @@ import java.sql.Statement;
  */
 
 public class Orders {
-    String OrderID;
+    int OrderID;
     String CustomerID;
     String Status;
     
@@ -26,11 +26,11 @@ public class Orders {
         Status = "Open";
     }
     
-    public String getOrderID() {
+    public int getOrderID() {
         return OrderID;
     }
     
-    public void setOrderID(String OID) {
+    public void setOrderID(int OID) {
         OrderID = OID;
     }
     
@@ -71,7 +71,7 @@ public class Orders {
     }
     
     //select method for Employee using OrderID
-    public void SelectDB(String OID) {
+    public void SelectDB(int OID) {
         OrderID = OID;
         try {
             Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
@@ -83,13 +83,13 @@ public class Orders {
             Statement stmt = con.createStatement();
                                                                                                                                             
             String sql;
-            sql = "Select * from Orders WHERE OrderID = '"+ OID +"'";
+            sql = "Select * from Orders WHERE OrderID = "+ OID +"";
             System.out.println(sql);
             
             ResultSet rs = stmt.executeQuery(sql);
             
             rs.next();
-            setOrderID(rs.getString(1));
+            setOrderID(rs.getInt(1));
             setCustomerID(rs.getString(2));
             setStatus(rs.getString(3));
             
@@ -119,7 +119,7 @@ public class Orders {
             ResultSet rs = stmt.executeQuery(sql);
             
             rs.next();
-            setOrderID(rs.getString(1));
+            setOrderID(rs.getInt(1));
             setCustomerID(rs.getString(2));
             setStatus(rs.getString(3));
             
@@ -148,7 +148,7 @@ public class Orders {
             ResultSet rs = stmt.executeQuery(sql);
             
             rs.next();
-            setOrderID(rs.getString(1));
+            setOrderID(rs.getInt(1));
             setCustomerID(rs.getString(2));
             setStatus(rs.getString(3));
             
@@ -159,7 +159,9 @@ public class Orders {
         }
     }
     
-    public void InsertDB() {
+    public void InsertDB(String CID, String S) {
+        CustomerID = CID;
+        Status = S;
         try {
             Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
             
@@ -170,7 +172,7 @@ public class Orders {
             Statement stmt = con.createStatement();
                                                                                                                                             
             String sql;
-            sql = "Insert into Orders values (NULL, '"+getCustomerID()+"', '" + getStatus()+"')";
+            sql = "Insert into Orders (CustomerID, Status) values ('"+getCustomerID()+"', '"+getStatus()+"')";
             System.out.println(sql);
             int n = stmt.executeUpdate(sql);
             if(n==1){
@@ -200,7 +202,7 @@ public class Orders {
             sql = "Update Orders set CustomerID = "
                     + " '" + getCustomerID()+"',"
                     + " "+" Status = '" + getStatus()+"'"
-                    + " where OrderID = '"+getOrderID()+"'";
+                    + " where OrderID = "+getOrderID()+"";
             System.out.println(sql);
             int n1 = stmt.executeUpdate(sql);
             if(n1==1){
@@ -227,7 +229,7 @@ public class Orders {
             Statement stmt = con.createStatement();
                                                                                                                                             
             String sql;
-            sql = "Delete from Orders where OrderID = '" +getOrderID()+"'";
+            sql = "Delete from Orders where OrderID = " +getOrderID()+"";
             System.out.println(sql);
             int n2 = stmt.executeUpdate(sql);
             if(n2==1){
@@ -255,5 +257,19 @@ public class Orders {
         //Orders o3 = new Orders();
         //o3.RecentSelectDB();
         //o3.display();
+        
+        //Orders o4 = new Orders();
+        //o4.InsertDB("Daria1", "Open");
+        //o4.display();
+        
+        //Orders o5 = new Orders();
+        //o5.SelectDB(3);
+        //o5.setStatus("Testing");
+        //o5.UpdateDB();
+        //o5.display();
+        
+        Orders o6 = new Orders();
+        o6.SelectDB(3);
+        o6.DeleteDB();
     }
 }
