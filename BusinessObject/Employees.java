@@ -10,6 +10,7 @@ import java.sql.Statement;
  * Benevolence Ed-Malik
    Pradsley D'Haiti
  */
+
 public class Employees {
     public int ID;
     public String EmpID;
@@ -92,8 +93,7 @@ public class Employees {
         }
     }
     
-    public void InsertDB(int I, String EID, String FN, String P) {
-        ID = I;
+    public void InsertDB(String EID, String FN, String P) {
         EmpID = EID;
         FullName = FN;
         Password = P;
@@ -108,7 +108,7 @@ public class Employees {
             Statement stmt = con.createStatement();
                                                                                                                                             
             String sql;
-            sql = "Insert into Employees values ("+getID()+", "+"'" + getEmpID()+"', "+"'" + getFullName()+"', "+"'" + getPassword()+"')";
+            sql = "Insert into Employees (EmpID, FullName, Password) values ('"+getEmpID()+"', '"+getFullName()+"', '"+getPassword()+"')";
             System.out.println(sql);
             int n = stmt.executeUpdate(sql);
             if(n==1){
@@ -135,11 +135,10 @@ public class Employees {
             Statement stmt = con.createStatement();
                                                                                                                                             
             String sql;
-            sql = "Update Employees set EmpID = "
-                        + "'" + getEmpID()+"', "
-                        + ""+" FullName = '" + getFullName()+"', "
+            sql = "Update Employees set FullName = "
+                        + "'" + getFullName()+"', "
                         + ""+" Password = '" + getPassword()+"' "
-                        + "where ID = "+getID()+"";
+                        + "where EmpID = '"+getEmpID()+"'";
             System.out.println(sql);
             int n1 = stmt.executeUpdate(sql);
             if(n1==1){
@@ -166,7 +165,7 @@ public class Employees {
             Statement stmt = con.createStatement();
                                                                                                                                             
             String sql;
-            sql = "Delete from Employees where ID = '"+getID()+"'";
+            sql = "Delete from Employees where EmpID = '"+getEmpID()+"'";
             System.out.println(sql);
             int n2 = stmt.executeUpdate(sql);
             if(n2==1){
@@ -195,17 +194,17 @@ public class Employees {
         //e1.display();
         
         //Employees e2 = new Employees();
-        //e2.InsertDB(4, "BS2101", "Bella Smith", "bemith101*");
+        //e2.InsertDB("ST2101", "Smith Tanum", "tmith123*");
         //e2.display();
         
         //Employees e3 = new Employees();
-        //e3.SelectDB(4);
+        //e3.SelectDB(3);
         //e3.setFullName("Ben Smith");
         //e3.UpdateDB();
         //e3.display();
         
         Employees e4 = new Employees();
-        e4.SelectDB(4);
+        e4.SelectDB(3);
         e4.DeleteDB();
     }
 }
