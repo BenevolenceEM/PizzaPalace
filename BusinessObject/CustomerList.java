@@ -48,7 +48,7 @@ public class CustomerList {
                 String phone = (rs.getString("Phone"));
                 String custPass = (rs.getString("Password")); 
                 
-                Customer c1 = new Customer(id,custId,custFn, custLn, custEmail, phone, custPass);
+                Customer c1 = new Customer(id, custFn, custLn, custEmail, phone, custPass);
                 customers.add(c1);
             }
         }catch(Exception ex){
