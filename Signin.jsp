@@ -36,10 +36,10 @@
             </nav>
         </header>
 
-        <h3 style="text-align: center">Don't have one? 
+        <h2 style="text-align: center">Don't have one? 
             <a href="#" style="color: #cf641c; text-decoration: underline">
             Join the rewards program now</a>
-        </h3>
+        </h2>
         
         <div class="container">
             <form action="SigninServlet">
