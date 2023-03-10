@@ -10,6 +10,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Pizza Palace Rewards - Sign In</title>
         <link rel="stylesheet" href="main.css">
+        <link rel="stylesheet" href="styles.css">
         <link rel="icon" type="image/png" sizes="32x32" href="images/logo.png">
     </head>
     <body>
