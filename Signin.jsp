@@ -36,14 +36,13 @@
                 <a href="#" class="account">Pizza Palace Rewards</a>
             </nav>
         </header>
-
-        <h2 style="text-align: center">Don't have one? 
-            <a href="#" style="color: #cf641c; text-decoration: underline">
-            Join the rewards program now</a>
-        </h2>
         
         <div class="container">
             <form action="SigninServlet">
+                <h2 style="text-align: center">Don't have one? 
+                <a href="#" style="color: #cf641c; text-decoration: underline">
+                Join the rewards program now</a>
+                </h2>
                 <br>Email<br> <input type="text" id="email" name="email"> <br>
                 Password<br> <input type="text" id="password" name="password">
                 <br><br>
