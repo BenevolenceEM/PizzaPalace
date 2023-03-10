@@ -1,0 +1,26 @@
+/* 
+    Benevolence Ed-Malik
+    Pradsley D'Haiti
+*/
+
+.container {
+    margin: 10px 0px;
+    float: left;
+    width: 70%;
+    font-size: 18px;
+}
+
+.container input[type=text] {
+    width: 40%;
+    padding: 4px 2px;
+    margin: 4px 0px;
+}
+
+.container input[type=submit], .container input[type=reset] {
+    color: #cf641c;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 15%;
+    padding: 4px 2px;
+}
