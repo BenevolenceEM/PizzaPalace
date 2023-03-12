@@ -33,9 +33,8 @@ public class SigninServlet extends HttpServlet {
         
         PrintWriter out = response.getWriter();
         
-        String email, password;
-        email = request.getParameter("email");
-        password = request.getParameter("password");
+        String email = request.getParameter("email");
+        String password = request.getParameter("password");
         
         Customer c1 = new Customer();
         c1.selectEmail(email);
