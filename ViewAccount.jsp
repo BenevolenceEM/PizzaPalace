@@ -17,7 +17,7 @@
     <body>
         <%
             Customer c1 = (Customer)session.getAttribute("c1");
-            session.getAttribute("user");
+            session.getAttribute("c1");
         %>
         <header>
             <a href="index.html" class="logo">
