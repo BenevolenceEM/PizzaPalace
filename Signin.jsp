@@ -40,7 +40,7 @@
         <div class="container">
             <form action="SigninServlet">
                 <h2 style="text-align: center">Don't have one? 
-                <a href="CreateAccount.jsp" style="color: #cf641c; text-decoration: underline">
+                <a href="Join.jsp" style="color: #cf641c; text-decoration: underline">
                     Join the rewards program now</a>
                 </h2><br><br>
                 
