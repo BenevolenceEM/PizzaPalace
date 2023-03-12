@@ -51,7 +51,7 @@
             <label for="id">Customer ID</label><br>
             <input readonly type="text" id="id" name="id" value="<%=c1.getCustomerId()%>"><br>
             <label for="password">Password</label><br>
-            <input type="text" id="password" name="password" value="<%=c1.getPassword()%>"><br>
+            <input type="password" id="password" name="password" value="<%=c1.getPassword()%>"><br>
             <label for="fname">First Name</label><br>
             <input type="text" id="fname" name="fname" value="<%=c1.getFirstname()%>"><br>
             <label for="lname">Last Name</label><br>
