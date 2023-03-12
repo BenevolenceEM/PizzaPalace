@@ -33,7 +33,7 @@
                         <a href="">Dips</a>
                     </div>
                 </li>
-                <a href="#" class="account">Pizza Palace Rewards</a>
+                <a id="active" href="#" class="account">Pizza Palace Rewards</a>
             </nav>
         </header>
         
@@ -41,8 +41,8 @@
             <form action="SigninServlet">
                 <h2 style="text-align: center">Don't have one? 
                 <a href="#" style="color: #cf641c; text-decoration: underline">
-                Join the rewards program now</a>
-                </h2>
+                    Join the rewards program now</a>
+                </h2><br>
                 <br>Email<br> <input type="text" id="email" name="email"> <br>
                 Password<br> <input type="text" id="password" name="password">
                 <br><br>
