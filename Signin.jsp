@@ -40,12 +40,15 @@
         <div class="container">
             <form action="SigninServlet">
                 <h2 style="text-align: center">Don't have one? 
-                <a href="#" style="color: #cf641c; text-decoration: underline">
+                <a href="CreateAccount.jsp" style="color: #cf641c; text-decoration: underline">
                     Join the rewards program now</a>
-                </h2><br>
-                <br>Email<br> <input type="text" id="email" name="email"> <br>
-                Password<br> <input type="text" id="password" name="password">
-                <br><br>
+                </h2><br><br>
+                
+                <label for="email">Email</label><br>
+                <input type="text" id="email" name="email"><br><br>
+                
+                <label for="password">Password</label><br>
+                <input type="password" id="password" name="password"><br><br>
                 <a href="#" style="color: #cf641c; text-decoration: underline">
                 FORGOT PASSWORD?</a><br><br>
                 
