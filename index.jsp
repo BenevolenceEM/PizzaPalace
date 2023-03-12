@@ -170,7 +170,7 @@ Pradsley D'Haiti
         <footer>
             Copyright &copy; 2023
             Coded by <a href="https://github.com/BenevolenceEM"><i>Benevolence Ed-Malik</i></a> 
-            and <a href=""><i>Pradsley D'Haiti</i></a>.
+            and <a href="https://github.com/Prads-ai"><i>Pradsley D'Haiti</i></a>.
         </footer>
 
     </body>
