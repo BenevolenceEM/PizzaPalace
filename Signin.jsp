@@ -15,11 +15,12 @@
     </head>
     <body>
         <header>
-            <a href="index.html" class="logo">
+            <a id="active" href="index.html" class="logo">
                 <img src="images/image.png" alt="logo">
             </a>
             <nav>
-                <a href="" class="promos">Promos</a>
+                <div class="nav">
+                <li><a href="" class="promos">Promos</a></li>
                 <li class="menu-dropdown">
                     <a href="" class="menu">Menu</a>
                     <div class="menu-content">
@@ -32,8 +33,11 @@
                         <a href="">Drinks</a>
                         <a href="">Dips</a>
                     </div>
+                </div>
                 </li>
-                <a id="active" href="#" class="account">Pizza Palace Rewards</a>
+                <div class="nav-1">
+                <a id="active" href="#" class="account">Pizza Palace rewards</a>
+                </div>
             </nav>
         </header>
         
