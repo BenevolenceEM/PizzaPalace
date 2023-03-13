@@ -29,7 +29,6 @@ header {
     display: flex;
     align-items: center;
     padding-top: 10px;
-    padding-bottom: 10px;
     border: 1px solid white;
     box-shadow: 2px 2px 5px lightgrey;
     position: fixed;
@@ -39,7 +38,7 @@ header {
 }
 
 .logo {
-    /*display: flex;*/
+    display: flex;
 }
 
 .logo img {
@@ -54,6 +53,20 @@ nav {
     font-weight: bold;
 }
 
+.nav li {
+    float: left;
+    margin-right: 20px;
+}
+
+.nav-1 {
+    float: end;
+    margin-left: 55em;
+}
+
+.nav, .nav-1 {
+    margin-top: 5px;
+}
+
 nav a {
     text-decoration: none;
     color: #cf641c;
@@ -63,17 +76,17 @@ li {
     list-style-type: none;
 }
 
-.promos {
+/*.promos {
     padding-right: 25px;
-}
+}*/
 
-.promos:hover {
+.promos:hover, .menu:hover {
     text-decoration: underline;
 }
 
-.menu {
+/*.menu {
     padding-left: 25px;
-}
+}*/
 
 .menu:hover {
     text-decoration: underline;
@@ -112,7 +125,7 @@ li {
 
 .account {
     float: end;
-    padding-left: 33em;
+/*    padding-left: 33em;*/
 }
 
 .account:hover {
@@ -259,12 +272,4 @@ footer a {
 
 footer a:hover {
     text-decoration: underline;
-}
-
-/* responsive design */
-@media only screen and (min-width: 768px) {
-	
-}
-@media only screen and (max-width: 400px) {
-
 }
