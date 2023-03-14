@@ -181,7 +181,7 @@ public class Customer {
                     + ""+getPassword()+")";
             System.out.println(sql);
             int n = stmt.executeUpdate(sql);
-            String result = n == 1 ? "Insert successfull" : "Insert failed";
+            String result = n == 1 ? "Insert successful" : "Insert failed";
             System.out.println(result);
         }catch(Exception ex){
         ex.printStackTrace();
