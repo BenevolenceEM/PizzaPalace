@@ -62,6 +62,7 @@
             <input type="text" id="lname" name="lname" value="<%=c1.getLastname()%>"><br>
             <label for="phone">Phone</label><br>
             <input type="text" id="phone" name="phone" value="<%=c1.getPhone()%>"><br><br>
+            
             <center><input type="submit" value="UPDATE"></center>
             </form>
         </div>
