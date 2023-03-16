@@ -36,7 +36,7 @@
                 </div>
                 </li>
                 <div class="nav-1">
-                <a id="active" href="#" class="account">Pizza Palace rewards</a>
+                    <li><p class="account" style="text-decoration: none; cursor: default">Pizza Palace rewards</p></li>
                 </div>
             </nav>
         </header>
