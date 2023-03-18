@@ -40,9 +40,9 @@
                     </div>
                 </div>
                 </li>
-                <div class="nav-1">
-                <a id="active" href="ViewAccount.jsp" class="account"><%=c1.getCustomerId()%></a>
-                <a href="">Log Out</a>
+                <div class="nav-2">
+                    <li><a id="active" href="ViewAccount.jsp" class="account" style="text-decoration: none"><%=c1.getCustomerId()%></a></li>
+                    <li><a href="" style="font-size: 1.3em">Log Out</a></li>
                 </div>
             </nav>
         </header>
