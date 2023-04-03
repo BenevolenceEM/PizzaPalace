@@ -2,25 +2,34 @@
     Benevolence Ed-Malik
     Pradsley D'Haiti
 --%>
-
+<%@page import="BusinessObject.Customer"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Pizza Palace Rewards - Sign In</title>
-        <link rel="stylesheet" href="main.css">
-        <link rel="stylesheet" href="styles.css">
-        <link rel="icon" type="image/png" sizes="32x32" href="images/logo.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/png" sizes="32x32" href="logo.png">
     </head>
+
+    <%
+        Customer c = (Customer) session.getAttribute("customer");
+        if (c != null) {
+            if (c.getPassword().equals("123")) {
+                out.println("You're account info is " + c.getEmail() + " and your default password is '123' ");
+            } else {
+                out.println("You're account info is " + c.getEmail() + " and your default password is " + c.getPassword());
+            }
+        }
+    %>
     <body>
         <header>
-            <a id="active" href="index.html" class="logo">
+            <a href="index.html" class="logo">
                 <img src="images/image.png" alt="logo">
             </a>
             <nav>
-                <div class="nav">
-                <li><a href="" class="promos">Promos</a></li>
+                <a href="" class="promos">Promos</a>
                 <li class="menu-dropdown">
                     <a href="" class="menu">Menu</a>
                     <div class="menu-content">
@@ -33,24 +42,24 @@
                         <a href="">Drinks</a>
                         <a href="">Dips</a>
                     </div>
-                </div>
                 </li>
-                <div class="nav-1">
-                    <li><p class="account" style="text-decoration: none; cursor: default">Pizza Palace rewards</p></li>
-                </div>
+                <a href="#" class="account">Pizza Palace Rewards</a>
             </nav>
         </header>
-        
+
+        <!--<h3 style="text-align: center">Don't have one? 
+            <a href="#" style="color: #cf641c; text-decoration: underline">
+                Join the rewards program now</a>
+        </h3>-->
+
         <div class="container">
-            <form action="SigninServlet">
-                <h2 style="text-align: left">Please sign in</h2><br><br>
-                
-                <label for="email">Email</label><br>
-                <input type="text" id="email" name="email"><br><br>
-                
-                <label for="password">Password</label><br>
-                <input type="password" id="password" name="password"><br><br>
-                
+            <form action="SigninServlet" method="post">
+                <br>Email<br> <input type="text" id="email" name="email" placelholder="<%=c.getEmail()%>"> <br>
+                Password<br> <input type="text" id="password" name="password">
+                <br><br>
+                <a href="#" style="color: #cf641c; text-decoration: underline">
+                    FORGOT PASSWORD?</a><br><br>
+
                 <input type="submit" value="SIGN IN">
                 <input type="reset" value="CLEAR">
             </form>
@@ -75,5 +84,7 @@
         <%
             }
         %>
+        
+        
     </body>
 </html>
