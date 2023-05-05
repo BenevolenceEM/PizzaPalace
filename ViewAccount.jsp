@@ -17,7 +17,7 @@
     <body>
         <%
             Customer c1 = (Customer)session.getAttribute("c1");
-            session.getAttribute("c1");
+            String update = request.getParameter("update");
         %>
         <header>
             <a id="active" href="index.html" class="logo">
@@ -48,7 +48,22 @@
         </header>
         
         <div class="container">
+            <% if(update!= null) {%>
+                <% if(update.equals("success")) {%>
+                    <div class="alert alert-success">
+                        <strong>Success!</strong> Your information has been updated.
+                    </div>
+                <% } else { %>
+                <div class="alert alert-failure">
+                    <strong>Failure!</strong> Please try again.
+                </div>
+                <% } %>
+            <% } %>
             <h2 style="text-align: center; color: #cf641c;">My Account</h2><br>
+            <%-- Display success or failure message here --%>
+            <% if(request.getAttribute("message") != null) { %>
+                <p><%= request.getAttribute("message") %></p>
+            <% } %>
             <form action="ViewAccountServlet">
             <label for="email">Email</label><br>
             <input readonly type="text" id="email" name="email" value="<%=c1.getEmail()%>"><br>

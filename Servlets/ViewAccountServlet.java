@@ -32,29 +32,30 @@ public class ViewAccountServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         
-        HttpSession ses1;
-        ses1 = request.getSession();
-            
-        Customer c1 = (Customer)ses1.getAttribute("c1");
-        out.println(c1.getPassword());
-        out.println(c1.getFirstname());
-        out.println(c1.getLastname());
-        out.println(c1.getPhone());
+        HttpSession session;
+        session = request.getSession();
+        
+        Customer c1 = (Customer)session.getAttribute("c1");
             
         String Password = request.getParameter("password");
         String Firstname = request.getParameter("fname");
         String Lastname = request.getParameter("lname");
         String Phone = request.getParameter("phone");
-            
+        
         c1.setPassword(Password);
         c1.setFirstname(Firstname);
         c1.setLastname(Lastname);
         c1.setPhone(Phone);
-            
-        c1.updateDB();
         
-        RequestDispatcher rd = request.getRequestDispatcher("ViewAccount.jsp");
-        rd.forward(request, response);
+        boolean success = c1.updateDB();
+        
+        if(success) {
+        // The update was successful
+           response.sendRedirect("ViewAccount.jsp?update=success");
+        } else {
+        // The update failed
+           response.sendRedirect("ViewAccount.jsp?update=failure");
+        }
     }
     
 
