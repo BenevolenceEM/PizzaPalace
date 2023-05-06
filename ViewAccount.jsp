@@ -20,7 +20,7 @@
             String update = request.getParameter("update");
         %>
         <header>
-            <a id="active" href="index.html" class="logo">
+            <a href="index.html" class="logo">
                 <img src="images/image.png" alt="logo">
             </a>
             <nav>
@@ -38,12 +38,12 @@
                         <a href="">Drinks</a>
                         <a href="">Dips</a>
                     </div>
-                </div>
                 </li>
-                <div class="nav-2">
-                    <li><a id="active" href="ViewAccount.jsp" class="account" style="text-decoration: none"><%=c1.getCustomerId()%></a></li>
-                    <li><a href="" style="font-size: 1.3em">Log Out</a></li>
                 </div>
+                <div class="nav-1">
+                    <li><a href="ViewAccount.jsp" class="account" style="text-decoration: none"><%=c1.getCustomerId()%></a></li>
+                </div>
+<!--                <a href="" class="logout" style="font-size: 1.3em; margin-left: 40px;">Log Out</a>-->
             </nav>
         </header>
         
@@ -60,10 +60,6 @@
                 <% } %>
             <% } %>
             <h2 style="text-align: center; color: #cf641c;">My Account</h2><br>
-            <%-- Display success or failure message here --%>
-            <% if(request.getAttribute("message") != null) { %>
-                <p><%= request.getAttribute("message") %></p>
-            <% } %>
             <form action="ViewAccountServlet">
             <label for="email">Email</label><br>
             <input readonly type="text" id="email" name="email" value="<%=c1.getEmail()%>"><br>

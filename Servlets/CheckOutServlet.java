@@ -39,6 +39,11 @@ public class CheckOutServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        
+        System.out.println("**************************************");
+        System.out.println("*****CheckOutServlet RUNNING*****");
+        System.out.println("**************************************");
+        
         PrintWriter out = response.getWriter();
             String fn, ln, em, phone,empId,oCode;
             Customer c1;

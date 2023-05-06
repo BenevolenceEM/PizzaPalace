@@ -31,6 +31,10 @@ public class SigninServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
+        System.out.println("**************************************");
+        System.out.println("*****SigninServlet RUNNING*****");
+        System.out.println("**************************************");
+        
         PrintWriter out = response.getWriter();
         
         String email = request.getParameter("email");

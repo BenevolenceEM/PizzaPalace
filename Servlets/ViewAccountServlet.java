@@ -29,6 +29,11 @@ public class ViewAccountServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        
+        System.out.println("**************************************");
+        System.out.println("*****ViewAccountServlet RUNNING*****");
+        System.out.println("**************************************");
+        
         PrintWriter out = response.getWriter();
         
         HttpSession session;

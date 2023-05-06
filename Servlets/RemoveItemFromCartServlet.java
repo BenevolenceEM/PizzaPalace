@@ -36,6 +36,11 @@ public class RemoveItemFromCartServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        
+        System.out.println("**************************************");
+        System.out.println("*****RemoveItemFromCartServlet RUNNING*****");
+        System.out.println("**************************************");
+        
         try (PrintWriter out = response.getWriter()) {
            
             HttpSession session = request.getSession();

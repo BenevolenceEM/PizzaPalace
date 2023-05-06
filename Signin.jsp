@@ -15,7 +15,7 @@
     </head>
     <body>
         <header>
-            <a id="active" href="index.html" class="logo">
+            <a href="index.html" class="logo">
                 <img src="images/image.png" alt="logo">
             </a>
             <nav>
