@@ -15,11 +15,12 @@
     </head>
     <body>
         <header>
-            <a id="active" href="index.html" class="logo">
+            <a href="index.html" class="logo">
                 <img src="images/image.png" alt="logo">
             </a>
-            <nav>
+             <nav>
                 <div class="nav">
+                <ul>
                 <li><a href="" class="promos">Promos</a></li>
                 <li class="menu-dropdown">
                     <a href="" class="menu">Menu</a>
@@ -33,8 +34,9 @@
                         <a href="">Drinks</a>
                         <a href="">Dips</a>
                     </div>
-                </div>
                 </li>
+                </ul>
+                </div>
                 <div class="nav-1">
                     <li><p class="account" style="text-decoration: none; cursor: default">Pizza Palace rewards</p></li>
                 </div>
@@ -42,7 +44,10 @@
         </header>
         
         <div class="container">
-            <form action="JoinServlet">
+            <% if(request.getAttribute("message") != null) {%>
+                <%= request.getAttribute("message") %>
+            <% } %>
+            <form action="JoinServlet" method="post">
             <label for="fname">First Name</label><br>
             <input type="text" id="fname" name="fname"><br>
             <label for="lname">Last Name</label><br>

@@ -30,10 +30,16 @@ public class JoinServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        
+        System.out.println("**************************************");
+        System.out.println("*****JoinServlet RUNNING*****");
+        System.out.println("**************************************");
+        try {
+        
         PrintWriter out = response.getWriter();
         
-        HttpSession ses1;
-        ses1 = request.getSession();
+        HttpSession session;
+        session = request.getSession();
         
         String FirstName = request.getParameter("fname");
         String LastName = request.getParameter("lname");
@@ -42,11 +48,32 @@ public class JoinServlet extends HttpServlet {
         String Password = request.getParameter("password");
         
         Customer c1 = new Customer();
-        c1.insertDB(FirstName, LastName, Email, Phone, Password);
+        c1.selectEmail(Email);
+        if(!"".equals(c1.getEmail())) {
+            session.setAttribute("message", "Account with this email already exists.");
+//            RequestDispatcher rd = request.getRequestDispatcher("Join.jsp");
+//            rd.forward(request, response);
+        }
         
-        ses1.setAttribute("c1", c1);
+        boolean isInserted = c1.insertDB(FirstName, LastName, Email, Phone, Password);
+        String message = isInserted? "Account created succesfully": "Account creation failed";
+        
+        session.setAttribute("message", message);
+        
+//        c1.setFirstname(FirstName);
+//        c1.setLastname(LastName);
+//        c1.setEmail(Email);
+//        c1.setPhone(Phone);
+//        c1.setPassword(Password);
+//        
+//        c1.insertDB(FirstName, LastName, Email, Phone, Password);
+        session.setAttribute("c1", c1);
         RequestDispatcher rd = request.getRequestDispatcher("Signin1.jsp");
         rd.forward(request, response);
+        
+        } catch (Exception e) {
+            System.out.println("Error" + e);
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
